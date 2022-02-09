@@ -20,15 +20,15 @@ package main
 import "time"
 
 type User struct {
-	ID              int        `gorm:"column:id"`
-	Revision        int        `gorm:"coulmn:revision"`
-	Email           string     `gorm:"column:email"`
-	GithubID        string     `gorm:"column:github_id"`
-	DepartmentID    int        `gorm:"column:department_id"`
-	DepartmentName  string     `gorm:"column:department_name;<-:false"`
-	ProfileImageURL string     `gorm:"column:profile_img_url"`
-	CreatedAt       time.Time  `gorm:"column:created_at"`
-	DeletedAt       *time.Time `gorm:"column:deleted_at"`
+	ID              int
+	Revision        int
+	Email           string
+	GithubID        string
+	DepartmentID    int
+	DepartmentName  string
+	ProfileImageURL string
+	CreatedAt       time.Time
+	DeletedAt       *time.Time
 }
 ```
 
