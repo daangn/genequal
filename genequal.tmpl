@@ -7,16 +7,20 @@ func (this {{.Name}}) Equal(other {{.Name}}) bool {
 	}
 	{{- end}}
 	{{- if .IsPointer}}
-	if this.{{.Name}} != other.{{.Name}} || this.{{.Name}} != nil {
-		{{- if .IsPrimitive}}
-		if *this.{{.Name}} != *other.{{.Name}} {
+	if this.{{.Name}} != other.{{.Name}} {
+		if this.{{.Name}} != nil && other.{{.Name}} != nil {
+			{{- if .IsPrimitive}}
+			if *this.{{.Name}} != *other.{{.Name}} {
+				return false
+			}
+			{{- else}}
+			if !this.{{.Name}}.Equal(*other.{{.Name}}) {
+				return false
+			}
+			{{- end}}
+		} else {
 			return false
 		}
-		{{- else}}
-		if !this.{{.Name}}.Equal(*other.{{.Name}}) {
-			return false
-		}
-		{{- end}}
 	}
 	{{- end}}
 {{- end}}
