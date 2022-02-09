@@ -57,13 +57,13 @@ func (this User) Equal(other User) bool {
 	if this.ProfileImageURL != other.ProfileImageURL {
 		return false
 	}
-	if this.DeletedAt != other.DeletedAt {
+	if this.CreatedAt != other.CreatedAt {
 		return false
 	}
-	if this.DeletedAt != nil {
- 		if !this.DeletedAt.Equal(*other.DeletedAt) {
+	if this.DeletedAt != other.DeletedAt || this.DeletedAt != nil {
+		if !this.DeletedAt.Equal(*other.DeletedAt) {
 			return false
- 		}
+		}
 	}
 
 	return true
