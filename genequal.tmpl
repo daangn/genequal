@@ -1,0 +1,27 @@
+{{- range . -}}
+func (this {{.Name}}) Equal(other {{.Name}}) bool {
+{{- range .Fields -}}
+  {{- if or (.IsPointer) (.IsPrimitive)}}
+  if this.{{.Name}} != other.{{.Name}} {
+    return false
+  }
+  {{- end}}
+  {{- if .IsPointer}}
+  if this.{{.Name}} != nil {
+    {{- if .IsPrimitive}}
+    if this.{{.Name}} != other.{{.Name}} {
+      return false
+    }
+    {{- else}}
+    if !this.{{.Name}}.Equal(other.{{.Name}}) {
+      return false
+    }
+    {{- end}}
+  }
+  {{- end}}
+{{- end}}
+
+  return true
+}
+
+{{end -}}
