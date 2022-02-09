@@ -61,7 +61,7 @@ func (this User) Equal(other User) bool {
 		return false
 	}
 	if this.DeletedAt != nil {
- 		if !this.DeletedAt.Equal(other.DeletedAt) {
+ 		if !this.DeletedAt.Equal(*other.DeletedAt) {
 			return false
  		}
 	}

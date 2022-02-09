@@ -9,11 +9,11 @@ func (this {{.Name}}) Equal(other {{.Name}}) bool {
 	{{- if .IsPointer}}
 	if this.{{.Name}} != nil {
 		{{- if .IsPrimitive}}
-		if this.{{.Name}} != other.{{.Name}} {
+		if *this.{{.Name}} != *other.{{.Name}} {
 			return false
 		}
 		{{- else}}
- 		if !this.{{.Name}}.Equal(other.{{.Name}}) {
+ 		if !this.{{.Name}}.Equal(*other.{{.Name}}) {
 			return false
  		}
  		{{- end}}
