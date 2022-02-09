@@ -36,37 +36,37 @@ Will prints this
 
 ```go
 func (this User) Equal(other User) bool {
-  if this.ID != other.ID {
-    return false
-  }
-  if this.Revision != other.Revision {
-    return false
-  }
-  if this.Email != other.Email {
-    return false
-  }
-  if this.GithubID != other.GithubID {
-    return false
-  }
-  if this.DepartmentID != other.DepartmentID {
-    return false
-  }
-  if this.DepartmentName != other.DepartmentName {
-    return false
-  }
-  if this.ProfileImageURL != other.ProfileImageURL {
-    return false
-  }
-  if this.DeletedAt != other.DeletedAt {
-    return false
-  }
-  if this.DeletedAt != nil {
-    if !this.DeletedAt.Equal(other.DeletedAt) {
-      return false
-    }
-  }
+	if this.ID != other.ID {
+		return false
+	}
+	if this.Revision != other.Revision {
+		return false
+	}
+	if this.Email != other.Email {
+		return false
+	}
+	if this.GithubID != other.GithubID {
+		return false
+	}
+	if this.DepartmentID != other.DepartmentID {
+		return false
+	}
+	if this.DepartmentName != other.DepartmentName {
+		return false
+	}
+	if this.ProfileImageURL != other.ProfileImageURL {
+		return false
+	}
+	if this.DeletedAt != other.DeletedAt {
+		return false
+	}
+	if this.DeletedAt != nil {
+ 		if !this.DeletedAt.Equal(other.DeletedAt) {
+			return false
+ 		}
+	}
 
-  return true
+	return true
 }
 
 ```
